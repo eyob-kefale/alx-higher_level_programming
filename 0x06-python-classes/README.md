@@ -1,1 +1,1 @@
-This is an Alx project on python class and objects
+0x06. Python - Classes and Objects

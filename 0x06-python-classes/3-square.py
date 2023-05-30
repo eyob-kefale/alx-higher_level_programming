@@ -1,19 +1,23 @@
 #!/usr/bin/python3
-"""square class with private attribute size and method area"""
+# 3-square.py
+# Ekun-Thomas Francis <ekun_tee@yahoo.com>
+"""Define a class Square."""
+
+
 class Square:
-    """initialization of size by __init__ mmethod and returning the area using the area method"""
+    """Represent a square."""
+
     def __init__(self, size=0):
-
-        if type(size) is not int:
-            raise TypeError('size must be an integer')
-
-        if size < 0:
-            raise ValueError('size must be >= 0')
-
+        """Initialize a new square.
+        Args:
+            size (int): The size of the new square.
+        """
+        if not isinstance(size, int):
+            raise TypeError("size must be an integer")
+        elif size < 0:
+            raise ValueError("size must be >= 0")
         self.__size = size
 
     def area(self):
-        """Returns the current square area
-
-        """
-        return self.__size ** 2
+        """Return the current area of the square."""
+        return (self.__size * self.__size)
