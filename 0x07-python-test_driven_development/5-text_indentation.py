@@ -1,17 +1,22 @@
 #!/usr/bin/python3
+"""
+Module text_indentation
+prints a text with 2 new lines
+Adds 2 new lines after a set of characters.
+"""
+
+
 def text_indentation(text):
-    if type(text) != str:
+    """
+    Prints a text and add two newlines
+    after each of these characters {'.', '?', ':'}.
+    """
+
+    if type(text) is not str:
         raise TypeError("text must be a string")
 
-    sentences = text.replace(".", ".\n\n")
-    sentences = sentences.replace("?", "?\n\n")
-    sentences = sentences.replace(":", ":\n\n")
+    for delim in ".:?":
+        text = (delim + "\n\n").join(
+            [line.strip(" ") for line in text.split(delim)])
 
-    new_text = sentences.splitlines(True)
-    list1 = []
-    for c in new_text:
-        if c == "\n":
-            list1.append("\n")
-        else:
-            list1.append(c.lstrip())
-    print("".join(list1), end="")
+    print("{}".format(text), end="")
