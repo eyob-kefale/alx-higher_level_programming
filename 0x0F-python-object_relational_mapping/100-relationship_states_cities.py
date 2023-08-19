@@ -1,32 +1,23 @@
 #!/usr/bin/python3
-"""
-This script prints all City objects
-from the database `hbtn_0e_14_usa`.
-"""
-
+"""List all states"""
 from sys import argv
 from relationship_state import Base, State
 from relationship_city import City
-from sqlalchemy import create_engine
+from sqlalchemy import (create_engine)
 from sqlalchemy.orm import sessionmaker
 
 if __name__ == "__main__":
-    """
-    Access to the database and get the cities
-    from the database.
-    """
-
-    db_uri = 'mysql+mysqldb://{}:{}@localhost:3306/{}'.format(
-        argv[1], argv[2], argv[3])
-    engine = create_engine(db_uri)
+    engine = create_engine(
+        'mysql+mysqldb://{}:{}@localhost:3306/{}'
+        .format(argv[1], argv[2],
+                argv[3]), pool_pre_ping=True)
     Base.metadata.create_all(engine)
     Session = sessionmaker(bind=engine)
-
     session = Session()
-    cal_state = State(name='California')
-    sfr_city = City(name='San Francisco')
-    cal_state.cities.append(sfr_city)
-
-    session.add(cal_state)
+    new_state = State(name="California")
+    session.add(new_state)
+    session.commit()
+    new_city = City(name="San Francisco", state_id=new_state.id)
+    session.add(new_city)
     session.commit()
     session.close()

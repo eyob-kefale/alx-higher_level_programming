@@ -1,1 +1,1 @@
-This is Alx project to understand python object relational mapping using python
+0x0F. Python - Object-relational mapping
