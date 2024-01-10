@@ -1,15 +1,7 @@
-$(document).ready(function () {
-  const salutUri = 'https://fourtonfish.com/hellosalut/?lang=fr';
-  const $helloElement = $('div#hello');
-
-  function getSalut () {
-    return $.get({
-      url: salutUri,
-      dataType: 'json'
-    });
-  }
-
-  getSalut().then((res) => {
-    $helloElement.text(res.hello);
-  });
+$.ajax({
+  method: 'GET',
+  url: 'https://stefanbohacek.com/hellosalut/?lang=fr',
+  dataType: 'json'
+}).done(function (data) {
+  $('div#hello').html(data.hello);
 });

@@ -1,1 +1,1 @@
-This purpose this project is to understand how Jquery is implmented on Html file
+# 0x15-javascript-web_jquery readme file

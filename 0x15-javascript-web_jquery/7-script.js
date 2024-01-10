@@ -1,9 +1,7 @@
-const characterUri = 'https://swapi-api.hbtn.io/api/people/5/?format=json';
-const $characterDiv = $('div#character');
-
 $.ajax({
-  url: characterUri,
+  method: 'GET',
+  url: 'https://swapi-api.hbtn.io/api/people/5/?format=json',
   dataType: 'json'
-}).done((data) => {
-  $characterDiv.text(data.name);
+}).done(function (data) {
+  $('div#character').append(data.name);
 });

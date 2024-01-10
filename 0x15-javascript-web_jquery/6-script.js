@@ -1,6 +1,3 @@
-const $headerElem = $('header');
-const $updateHeaderElem = $('div#update_header');
-
-$updateHeaderElem.on('click', () => {
-  $headerElem.text('New Header!!!');
+$('div#update_header').click(function () {
+  $('header').html('New Header!!!');
 });
